@@ -1,0 +1,42 @@
+<div class="settings-box">
+<div class="settings-container">
+
+
+    <!-- Username ändern Button (UNC = Username Change)  -->
+    <button class="UNC-btn" (click)="toggleChangeUsername()">Username ändern</button>
+    @if (boolChangeUsername)
+    {
+      <div class='container'>
+        <h2>🏷️ Username ändern</h2>
+        <form id='Form'>
+          <input id='usernameInput' type='text' placeholder='👤 derzeitiger Benutzername' required />
+          <input id='newUsername' type='text' placeholder='👤 neuer Benutzername' required />
+          <input id='passwordHash' type='password' placeholder='🔒 Passwort' required />
+          <button type='submit' (click)='changeUsername()'>✅ Bestätigen</button>
+        </form>
+      </div>
+    }
+
+
+
+    <!-- Passwort ändern Button (PWC = Password Change)  -->
+    <button class="PWC-btn" (click)="toggleChangePassword()">Passwort ändern</button>
+    @if (boolChangePassword)
+    {
+      <div class='container'>
+        <h2>🔐 Login</h2>
+        <form id='Form'>
+          <input id='username' type='text' placeholder='👤 Benutzername' required />
+          <input id='passwordHash' type='password' placeholder='🔒 Passwort' required />
+          <button type='submit' (click)='changePassword()'>✅ Einloggen</button>
+        </form>
+      </div>
+    }
+
+
+
+
+    <!-- <button (click)="" value="changeAvatar">Profilbild ändern</button> -->
+    <button class="AccDelete-btn" (click)="onRouteChange($event)" value="deleteAccount">Account löschen</button>
+  </div>
+</div>

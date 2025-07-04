@@ -1,0 +1,212 @@
+.post-box {
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    padding: 16px;
+    margin-bottom: 5px;
+    border-radius: 6px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Verdana';
+    position: relative;
+    padding-bottom: 0px; 
+    width: 74.7vw;
+    // margin-top: 2vw;
+  }
+  
+  .post-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+    font-family: 'Verdana';
+  }
+
+
+  .view-section {
+    position: relative;
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin-bottom: 24px;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+  }
+  
+  .post-content-box {
+    border: 1px solid #888;
+    background-color: #fff;
+    padding: 10px;
+    margin: 12px 0;
+    border-radius: 4px;
+  }
+  
+  .post-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+  
+  .post-meta {
+    font-size: 13px;
+    color: #666;
+  }
+
+  .action-btn {
+    position: absolute;
+    bottom: 8px;
+    min-width: 100px;
+    padding: 4px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .edit-btn {
+    right: 135px;
+    background-color: #00acfc;
+  }
+  
+  .delete-btn {
+    right: 16px;
+    background-color: #dc3545;
+  }
+
+
+  .btn-createPost{
+    position: absolute;
+    bottom: 8px;
+    min-width: 100px;
+    padding: 4px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+  }
+
+  .comment-dropdown {
+    background: #f4f4f4;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    margin-bottom: 2vw;
+    border-radius: 4px;
+    font-family: 'Verdana';
+    padding-bottom: 0px;
+    overflow-y: scroll;
+    max-height: 29vw;
+  }
+
+   .comment-dropdown::-webkit-scrollbar
+  {
+    display: none;
+  }
+  
+  .commentbtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.85vw;
+    margin-left: -0.4vw;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 0.5vw;
+  }
+
+  .comment-btn
+  {
+    right: 16px;
+    background-color: #00acfc;
+  }
+
+  // .createComment-box
+  // {
+  //   border: 1px solid #ccc;
+  //   background-color: #f9f9f9;
+  //   padding: 16px;
+  //   margin-bottom: 5px;
+  //   border-radius: 6px;
+  //   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+  //   font-family: 'Verdana';
+  //   position: relative;
+  //   padding-bottom: 0px; 
+  //   width: 74.7vw;
+  // }
+
+  // .createComment-text-box
+  // {
+  //   padding: 10px 15px;
+  //   padding-top: 10px;
+  //   max-width: 100%;
+  //   border: 2px solid #ccc;
+  //   border-radius: 4px;
+  //   font-size: 1em;
+  //   transition: border-color 0.3s ease-in-out;
+  //   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+  //   resize: none;
+  //   overflow: hidden;
+  //   box-sizing: border-box;
+  //   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  //   min-width: 1000px;
+  // }
+
+  // .postComment-btn
+  // {
+  //   right: 16px;
+  //   background-color: #00acfc;
+  //   margin-top: 1vw;
+  //   bottom: -25px;
+  // }
+
+  .createComment-dropdown {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.createComment-box {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #ffffff;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  width: 74.7vw;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 25px;
+  // width: 100%;
+  // max-width: 600px;
+  // margin: 0 auto;
+}
+
+.createComment-text-box {
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  resize: none;
+  max-width: 73.3vw;
+  transition: border-color 0.2s ease;
+  background-color: #fafafa;
+}
+
+.createComment-text-box:focus {
+  outline: none;
+  border-color: #888;
+  background-color: #fefefe;
+}
+
+.postComment-btn {
+  background-color: #4caf50;
+  color: #fff;
+  font-size: 13px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  min-height: 30px;
+}
+
+.postComment-btn:hover {
+  background-color: #45a047;
+}

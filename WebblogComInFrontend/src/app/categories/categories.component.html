@@ -1,0 +1,17 @@
+<ul class="category-btns">
+    @if ( categories.length > 0)
+    {
+      <li><button class="category-btn" (click)="onCategoryClick(null)">Alle</button></li>
+      @for (category of categories; track category.id)
+      {
+        <li>
+              <button class="category-btn" (click)="onCategoryClick(category.id)">{{ category.name }}</button>
+        </li>
+      }
+    }
+    @else 
+    {
+        <li>Keine Kategorien vorhanden.</li>
+    }
+</ul>
+

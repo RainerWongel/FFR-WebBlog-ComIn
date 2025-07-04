@@ -1,0 +1,98 @@
+<div class="post-box">
+      <label class="post-author">
+        <img src="https://th.bing.com/th/id/ODLS.53c78ec1-e3f5-4043-b8e1-a83e50d1805e?w=32&h=32&qlt=90&pcl=fffffa&o=6&cb=ircwebp1&pid=1.2"
+          style="vertical-align: sub; margin-bottom: -2px;" width="24px" height="24px" alt="Profilbild">
+            {{ post.user?.username || 'Unbekannt' }}
+
+      </label>
+
+        <div>
+
+          <h2 class="post-title" [attr.id]="'postTitle-' + post.id" [attr.contenteditable]="editMode" required>
+            {{ post.title }}
+          </h2>
+
+          <div class="post-content-box">
+
+            <p [attr.id]="'postContent-' + post.id" [attr.contenteditable]="editMode" required>
+              {{ post.content }}
+            </p>
+
+          </div>
+      
+            @if (post.user?.username === currentUsername )
+            {
+              @if (!editMode)
+              {
+                <button class="action-btn edit-btn" (click)="startEdit()">Bearbeiten ✏️</button>
+                
+                <button class="action-btn delete-btn" (click)="deletePostIfOwner(post)">Löschen 🗑️</button>
+              }
+  
+              
+  
+              @if (editMode)
+              {
+                <button class="action-btn delete-btn">Stop ❌ </button>
+                <button class="action-btn edit-btn"  (click)="savePost()">Speichern 💾</button>
+              }
+            }
+            @else 
+            {
+              <button class="action-btn comment-btn" (click)="toggleCreateComment(post.id)">Kommentieren ✏️</button>
+            }
+
+      
+          </div>  
+
+    
+  <div class="post-meta">
+    <p>
+      Kategorie: {{ getCategoryName(post.categoryId) }} |
+      Tags: @for (tag of post.postTags || []; track $index)
+      {
+        @if (tag)
+        {
+        {{ tag.tag.name  }} ,
+        }
+      }
+
+      |
+      Post-ID: {{ post.id }}
+    <!-- </p> -->
+    <!-- <button (click)="toggleComments()" class="commentbtn">💬 Kommentare</button> -->
+    <button (click)="toggleComments(post.id)" class="commentbtn">💬 Kommentare</button>
+  </div>
+
+</div>
+
+@if (createComment == true)
+{
+  <div class="createComment-dropdown">
+    <div class="createComment-box">
+    
+        <script>
+            function autoResize(textarea) {
+              textarea.style.height = 'auto'; 
+              textarea.style.height = textarea.scrollHeight + 'px';
+            }
+          </script>
+
+            <textarea class="createComment-text-box" id='commentText' placeholder="Kommentar" required oninput="autoResize(this)" style="width: 75vw;" rows="3"></textarea>
+            <button class="postComment-btn" (click)="postComment()">Kommentar erstellen</button>
+    </div>
+  </div>
+}
+
+@if (showcomments == true)
+{
+  <div class="comment-dropdown">
+    @for (comment of post.comments || []; track comment.id)
+    {
+      @if (!comment.parentCommentId)
+      {
+        <app-comment [comment]="comment" [level]="0"></app-comment>
+      }
+    }
+  </div>
+}

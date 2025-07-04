@@ -1,0 +1,52 @@
+<header style="position: fixed; z-index: 800; width: 95.9%; border-radius: 4px; margin-left: 0.7%;"  class="app-header">
+  <h1 class="title">WebBlog ComIn Praktikum 2025</h1>
+<div>
+  <button style="margin-right: 10px;" class="registerbutton" (click)="onRouteChange($event)" value='register'>Register</button>
+</div>
+<div class="search-container">
+  <input type="text" id='searchInput' placeholder="Suche nach Inhalt oder Titel..." (input)="onGlobalSearch($event)" class="onSearchInput"/>
+</div>
+  <img src="https://aadcdn.msftauthimages.net/c1c6b6c8-3-ngdjhyvsgkyq6cnf2k9dkiy6wc4inz15fvbl-pwzq/logintenantbranding/0/bannerlogo?ts=638654465294811576"  alt="cominlogo">
+  <p style="font-size: small;" id="statusBar">Nicht angemeldet.</p>
+</header>
+<body>
+
+  <aside class="category-sidebar">
+  <div style="display: fixed;" class="sidebar-content" id="leftside-container">
+
+    <button position="fixed" class="homebtn" value="posts" (click)="onRouteChange($event)">Home</button>
+    <button position="fixed" class="createpostbtn" value="createPost" (click)="onRouteChange($event)">Erstelle einen Post! ✏️</button>
+    <h3>Kategorien</h3>
+    <p>
+      <app-categories (categorySelected)="loadPostForCategory($event)" />
+    </p>
+  </div>
+  <button class="settingsbtn" (click)="clickSettingsHandler($event)" value="settings">Einstellungen</button>
+
+
+
+  @if (isLoggedIn)
+  {
+    <button style="margin-right: 10px;" class="logoutbtn" (click)="onLogout()">Logout</button>
+
+  }
+
+  @if (!isLoggedIn)
+  {
+    <button style="margin-right: 10px;" class="loginbtn" value="login" (click)="onRouteChange($event)">Login</button>
+  }
+
+  </aside>
+
+  <main class="main-content">
+
+  <router-outlet></router-outlet>
+
+
+
+  </main>
+
+</body>
+
+
+

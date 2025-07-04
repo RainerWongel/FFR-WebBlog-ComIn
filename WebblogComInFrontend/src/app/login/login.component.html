@@ -1,0 +1,19 @@
+<!-- 
+
+
+    <div class="login-box">
+
+        <input id='username' placeholder="Username"  />
+        <input id='passwordHash' type="password" placeholder="Passwort"  />
+        <button (click)="onLogin()">Login</button>
+
+    </div> -->
+
+    <div class='login-container'>
+        <h2>🔐 Login</h2>
+        <form id='loginForm'>
+          <input id='username' type='text' placeholder='👤 Benutzername' required />
+          <input id='passwordHash' type='password' placeholder='🔒 Passwort' required />
+          <button type='submit' (click)='onLogin()'>✅ Einloggen</button>
+        </form>
+      </div>

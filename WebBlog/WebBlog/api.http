@@ -1,0 +1,198 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+###############################################################################################################
+# CLIENT CATEGORY
+###############################################################################################################
+
+POST http://localhost:5072/api/ControllerCategory HTTP/1.1
+Content-Type: application/json
+{
+    "name": "Programmieren"
+}
+
+###
+
+GET http://localhost:5072/api/ControllerCategory HTTP/1.1
+
+###
+
+PUT http://localhost:5072/api/ControllerCategory/6 HTTP/1.1
+Content-Type: application/json
+{
+    "name": "Medizin"
+
+###
+
+DELETE http://localhost:5072/api/ControllerCategory/6 HTTP/1.1
+
+
+###
+
+###############################################################################################################
+# CLIENT POST
+################################################################################################################
+
+POST http://localhost:5072/api/ControllerPost HTTP/1.1
+Content-Type: application/json
+{
+    "title": "Test fürDTO",
+    "content": "Test",
+    "TagId": [1, 2, 6, 7, 8],
+    "categoryId": 7
+}
+
+###
+
+GET http://localhost:5072/api/ControllerPost HTTP/1.1
+
+
+###
+
+PUT http://localhost:5072/api/ControllerPost/2 HTTP/1.1
+Content-Type: application/json
+{
+    "Title": "Programmieren mit C#",
+    "Content": "Hier wird erklärt, wie man einen WebBlog mit EF Core schreibt.",
+    "Tags": [1]
+}
+
+###
+
+DELETE http://localhost:5072/api/ControllerPost/16 HTTP/1.1
+
+
+###############################################################################################################
+# CLIENT TAG
+###############################################################################################################
+
+POST http://localhost:5072/api/ControllerTag HTTP/1.1
+Content-Type: application/json
+{
+    "name": "Assembly"
+}
+
+###
+
+GET http://localhost:5072/api/ControllerTag HTTP/1.1
+
+
+###
+
+PUT http://localhost:5072/api/ControllerTag/1 HTTP/1.1
+Content-Type: application/json
+{
+    "name": "C++"
+}
+
+###
+
+DELETE http://localhost:5072/api/ControllerTag/5 HTTP/1.1
+
+
+###############################################################################################################
+# CLIENT COMMENT
+###############################################################################################################
+
+POST http://localhost:5072/api/ControllerComment HTTP/1.1
+Content-Type: application/json
+{
+    "text": "Vielen Dank für die kleine Einführung!.",
+    "postId": 13
+}
+
+###
+
+# POST http://localhost:5072/api/ControllerComment/post/13/comment HTTP/1.1
+# Content-Type: application/json
+# {
+#     "text": "Super netter Kommentar, toll!",
+#     "parentId": 7
+# }
+
+###
+
+GET http://localhost:5072/api/ControllerComment HTTP/1.1
+
+###
+
+GET http://localhost:5072/api/ControllerComment/post/{postId}/comments
+
+###
+
+GET http://localhost:5072/api/ControllerComment/byComment/7
+
+###
+
+PUT http://localhost:5072/api/ControllerComment/1 HTTP/1.1
+Content-Type: application/json
+{
+    "text": "Ich finde deinen Post doch nicht so gut."
+}
+
+###
+
+DELETE http://localhost:5072/api/ControllerComment/2 HTTP/1.1
+
+
+###############################################################################################################
+# CLIENT USER ADMINISTRATION
+###############################################################################################################
+
+POST http://localhost:5072/api/ControllerUserAdministration/register HTTP/1.1
+Content-Type: application/json
+{
+    "username": "Alex",
+    "passwordhash": "123"
+}
+###
+
+# User 1 PW: 987654321
+# User 2 PW: 1234509876
+# User 3 PW: 123
+#
+###
+###
+
+GET http://localhost:5072/api/ControllerUserAdministration HTTP/1.1
+
+###
+
+PUT http://localhost:5072/api/ControllerUserAdministration/9/change-username HTTP/1.1
+Content-Type: application/json
+{
+    "passwordhash": "test",
+    "username": "TestUser"
+}
+
+###
+
+PUT http://localhost:5072/api/ControllerUserAdministration/1/change-password HTTP/1.1
+Content-Type: application/json
+{
+    "username": "Rainer Wongel",
+    "passwordhash": "123456789",
+    "newpassword": "987654321"
+}
+
+### 
+
+DELETE http://localhost:5072/api/ControllerUserAdministration/TestUser2 HTTP/1.1
+Content-Type: application/json
+{
+    "username": "TestUser2",
+    "passwordhash": "test"
+}
+
+###############################################################################################################
+# CLIENT USER AUTHENTIFICATION
+###############################################################################################################
+
+POST http://localhost:5072/api/ControllerUserAuthentification/Login HTTP/1.1
+Content-Type: application/json
+{
+    "passwordhash": "1234509876",
+    "username": "FerdBlu"
+}
+
+###
+
+POST http://localhost:5072/api/ControllerUserAuthentification/Logout HTTP/1.1

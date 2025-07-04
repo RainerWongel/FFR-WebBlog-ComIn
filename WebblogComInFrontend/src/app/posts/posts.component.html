@@ -1,0 +1,30 @@
+<div class="staticbox" >
+
+  <div class="posts">   
+       @if (filteredPosts.length > 0) 
+       {
+          @for (post of filteredPosts; track post.id) 
+          {
+            <div>
+            <app-post [post]="post"></app-post>
+            </div>
+          }
+       }
+      
+      @else {
+      <p>Keine Beiträge vorhanden.</p>
+    }
+
+    <div class="paginator-btns">
+      <app-paginator
+      [currentPage]="currentPage"
+      [totalPages]="totalPages"
+      (pageChange)="loadPosts($event)">
+      </app-paginator>
+    </div>
+
+  </div>
+  
+
+
+  </div>  

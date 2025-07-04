@@ -1,0 +1,54 @@
+
+<div class="post-box">
+    <label class="post-author">
+      <img src="https://th.bing.com/th/id/ODLS.53c78ec1-e3f5-4043-b8e1-a83e50d1805e?w=32&h=32&qlt=90&pcl=fffffa&o=6&cb=ircwebp1&pid=1.2"
+        style="vertical-align: sub; margin-bottom: -2px;" width="24px" height="24px" alt="Profilbild">
+         {{ username }}
+    </label>
+
+      <div class="form-group">
+        <textarea class="post-title" placeholder="Titel" id='postTitle' required oninput="autoResize(this)" rows="1" style="width: 75vw; margin-bottom: 0.25vw;"></textarea>
+    
+        <script>
+            function autoResize(textarea) {
+              textarea.style.height = 'auto'; 
+              textarea.style.height = textarea.scrollHeight + 'px';
+            }
+          </script>
+
+        <div class="dropdown-row">
+
+            <textarea class="post-content-box" id='postContent' placeholder="Content" required oninput="autoResize(this)" style="width: 75vw;" rows="10"></textarea>
+            <button class="action-btn save-btn" (click)="createPost()">Post erstellen</button>
+            <div class="dropdown-category">
+
+            <select id='category'>
+              <option value="0">Kategorie auswählen</option>
+              @for (category of categories; track category.id)
+              {
+                  <option value="{{ category.id }}">{{ category.name }}</option>
+              }
+            </select>
+            </div>
+
+            <div class="dropdown-tag">
+              <select id='tag'>
+                <option value="0">Tag auswählen</option>
+                @for (tag of tags; track tag.id)
+                {
+                    <option value="{{ tag.id }}" [selected]="selectedTagIds.includes">{{ tag.name }}</option>
+                }
+              </select>
+              </div>
+
+        </div>
+
+        <div class="create-row">
+        <div class="createtagcategory">
+          <p>Deine Kategorie oder dein Tag sind nicht vorhanden? Kein Problem! Erstell hier deine eigenen!</p>
+          <input class="createCategory" id="createCategory" placeholder="Name deiner Kategorie" style="width: 15vw;">
+          <button class="submit-ctg" (click)="createCategory()">Bestätigen</button>
+          <input class="createTag" id="createTag" placeholder="Name deines Tags" style="width: 15vw;">
+          <button class="submit-tag" (click)="createTag()">Bestätigen</button>
+        </div>
+      </div>

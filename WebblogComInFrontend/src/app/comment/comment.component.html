@@ -1,0 +1,82 @@
+<div class="comment-box">
+    <label class="comment-author">
+        <img src="https://th.bing.com/th/id/ODLS.53c78ec1-e3f5-4043-b8e1-a83e50d1805e?w=32&h=32&qlt=90&pcl=fffffa&o=6&cb=ircwebp1&pid=1.2"
+          style="vertical-align: sub; margin-bottom: -2px;" width="24px" height="24px" alt="Profilbild">
+           {{ comment.user?.username }}
+      </label>
+
+            <div class="comment-text">
+            <p [attr.id]="'commentText-' + comment.id" [attr.contenteditable]="editMode">
+            {{ comment.text }}
+            </p>
+
+            @if (replies.length > 0)
+            {
+              <div class="replies">
+                @for (reply of replies; track reply.id)
+                {
+                  <app-comment [comment]="reply" [allComments]="allComments"></app-comment>
+                }
+              </div>
+            }
+           </div>
+
+        <div class="post-meta">
+    <p style="font-size: 10px;">
+      Kommentar-ID: {{ comment.id }}
+    </p>
+  </div>
+            <div class="buttons">
+           @if (comment.user?.username === currentUsername )
+            {
+              @if (!editMode)
+              {
+                <button class="action-btn edit-btn" (click)="startEdit()">Bearbeiten ✏️</button>
+                
+                <button class="action-btn delete-btn" (click)="deleteCommentIfOwner(comment)">Löschen 🗑️</button>
+              }
+  
+              
+  
+              @if (editMode)
+              {
+                <button class="action-btn edit-btn"  (click)="saveComment()">Speichern 💾</button>
+                <button class="action-btn delete-btn">Stop ❌ </button>
+              }
+            }
+            <!-- @else 
+            {
+              <button class="action-btn comment-btn" (click)="saveComment()">Kommentieren ✏️</button>
+            } -->
+              </div>
+
+              <div class="antwortbereich" [attr.id]="'antwort-container-' + comment.id">
+                <button class="action-btn reply-btn" (click)="toggleAnswerComment(comment.id)">
+                  Antworten 💬
+                </button>
+                @if (AnswerCommentField)
+                {
+                  <div class="antwort-wrapper" id="antwortfeld-{{ comment.id }}">
+                    <textarea class="antwort-textfeld"
+                              id="antwort-textarea-{{ comment.id }}"
+                              placeholder="Deine Antwort auf den Kommentar von {{ comment.user?.username }}"></textarea>
+                    <br />
+                    <button class="antwort-button" (click)="absendeAntwort(comment.id)" type="button">
+                      Absenden
+                    </button>
+                  </div>
+                }
+  
+                <div class="replies-wrapper">
+                  @if (comment.replies?.length) 
+                  {
+                    @for (reply of comment.replies ?? []; track reply.id) 
+                    {
+                      <app-comment [comment]="reply" [level]="level + 1" /> 
+                      <!-- level = einrücken von Replies, um sie von TopLevelKommentaren zu unterscheiden -->
+                    }
+                  }
+                </div>
+
+
+</div>
