@@ -75,7 +75,7 @@ namespace WebBlog.Controllers
             {
                 Title = dto.Title,
                 Content = dto.Content,
-                UserId = 6,
+                UserId = dto.UserId,
                 PostTags = dto.TagIds.Select(tagId => new PostTag
                 {
                     TagId = tagId
