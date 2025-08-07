@@ -77,3 +77,17 @@ Frontend:
 
 (Posts per Site einstellen: Im Frontend unter: WebblogComInFrontend\src\app\posts\posts.component.ts, Line 90)
 
+-----
+Screenshots
+-----
+Startseite:
+![Alt text](/Screenshots/Startseite.png?raw=true "Startseite")
+
+Post erstellen:
+![Alt text](Screenshots/Post_erstellen.png?raw=true "Post erstellen")
+
+Login:
+![Alt text](Screenshots/Login.png?raw=true "Post erstellen")
+
+Einstellungen:
+![Alt text](Screenshots/Einstellungen.png?raw=true "Post erstellen")
